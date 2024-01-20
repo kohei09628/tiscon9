@@ -73,7 +73,7 @@ public class EstimateService {
         double distance = estimateDAO.getDistance(dto.getOldPrefectureId(), dto.getNewPrefectureId());
         // 小数点以下を切り捨てる
         int distanceInt = (int) Math.floor(distance);
-
+        
         // 距離当たりの料金を算出する
         int priceForDistance = distanceInt * PRICE_PER_DISTANCE;
 
@@ -88,11 +88,24 @@ public class EstimateService {
         // オプションサービスの料金を算出する。
         int priceForOptionalService = 0;
 
+        // 月を
+        int month = Integer.parseInt(dto.getMonth());
+        double N = 0;
+
+
+        if (month==3 || month==4) {
+           N=1.5;
+        }else if(month==9){
+           N=1.2;
+        }else{
+            N=1;
+        }
+        
         if (dto.getWashingMachineInstallation()) {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        return (int) Math.floor((priceForDistance + pricePerTruck)*N + priceForOptionalService);
     }
 
     /**
