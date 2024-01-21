@@ -26,7 +26,7 @@ public class UserOrderDto {
 
     private boolean washingMachineInstallation;
 
-    private String month;
+    private String month; 
 
     public String getCustomerName() {
         return customerName;

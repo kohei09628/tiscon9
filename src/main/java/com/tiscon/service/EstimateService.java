@@ -24,7 +24,12 @@ public class EstimateService {
 
     /** 引越しする距離の1 kmあたりの料金[円] */
     private static final int PRICE_PER_DISTANCE = 100;
-
+    private static final double MARCH_APRIL_SEASON_COEFFICIENT=1.5;
+    private static final double SEPTEMBER_SEASON_COEFFICIENT=1.2;
+    private static final double ELSE_COEFFICIENT=1;
+    private static final int MARCH=3;
+    private static final int APRIL=4;
+    private static final int SEPTEMBER=9;
     private final EstimateDao estimateDAO;
 
     /**
@@ -88,24 +93,25 @@ public class EstimateService {
         // オプションサービスの料金を算出する。
         int priceForOptionalService = 0;
 
-        // 月を
+        // 月、季節係数を定義
         int month = Integer.parseInt(dto.getMonth());
-        double N = 0;
+        double SEASON_COEFFICIENT = 0;
+        
+        
 
-
-        if (month==3 || month==4) {
-           N=1.5;
-        }else if(month==9){
-           N=1.2;
+        if (month==MARCH || month==APRIL) {
+            SEASON_COEFFICIENT=MARCH_APRIL_SEASON_COEFFICIENT;
+        }else if(month==SEPTEMBER){
+            SEASON_COEFFICIENT=SEPTEMBER_SEASON_COEFFICIENT;
         }else{
-            N=1;
+            SEASON_COEFFICIENT=ELSE_COEFFICIENT;
         }
         
         if (dto.getWashingMachineInstallation()) {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return (int) Math.floor((priceForDistance + pricePerTruck)*N + priceForOptionalService);
+        return (int) Math.floor((priceForDistance + pricePerTruck)*SEASON_COEFFICIENT + priceForOptionalService);
     }
 
     /**
