@@ -77,8 +77,11 @@ body {
 }
 
 .company-name {
-    position: static;
-    margin: 10vh 0 0 10vw;
+    position: relative;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
     color: #FFFFFF;
     font-style: normal;
     font-weight: bold;
@@ -87,7 +90,11 @@ body {
 }
 
 .bland-message {
-    margin-left: 10vw;
+    position: relative;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
     color: #FFFFFF;
     font-style: normal;
     font-weight: bold;
