@@ -28,6 +28,28 @@ body {
     text-align: center;
 }
 
+.btn-primarytop {
+    margin: 32px;
+    padding: 64px 300px;
+    border: none;
+    border-radius: 48px;
+    color: #fff;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 28px;
+    font-family: Roboto;
+    text-align: center;
+    background-color: #2EA9BC;
+    box-shadow: 0 5px 0 #2EA9BC;
+}
+.btn:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+    background-color: #2EA9BC;
+    box-shadow: 0 5px 0 #2EA9BC;
+  }
+
 .btn-back {
     margin: 32px 64px 32px 96px;
     border: none;
