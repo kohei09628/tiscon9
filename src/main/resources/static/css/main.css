@@ -48,6 +48,7 @@ body {
     transform: translateY(5px);
     background-color: #2EA9BC;
     box-shadow: 0 5px 0 #2EA9BC;
+    color: #FFF;
   }
 
 .btn-back {
