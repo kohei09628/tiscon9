@@ -329,3 +329,53 @@ td {
     border-radius: .28571429rem;
     border: 1px solid rgba(34,36,38,.15);
 }
+
+i {
+    display: inline-block;
+    padding: 9px;
+  }
+
+.right1 {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    transform: rotate(-45deg);
+}
+
+.right2 {
+    border: solid #2EA9BC;
+    border-width: 0 5px 5px 0;
+    transform: rotate(-45deg);
+}
+
+
+
+
+.boxcolor{
+    display:inline-block;
+    width: 250px;
+    margin: 2rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    color: #2EA9BC;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    outline: 0.5rem solid #2EA9BC;
+    outline-offset: 0.5rem;
+    outline-width: 5px;
+}
+
+.afterboxcolor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px;
+    color: #2EA9BC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    font-family: "Roboto";
+}
